@@ -1,6 +1,18 @@
 'use strict';
 
-function Treasure(){
+var Mongo = require('mongodb'),
+    cp    = require('child_process'),
+    _     = require('lodash');
+
+function Treasure(o){
+  this.name = o.name;
+  this.loc = o.loc;
+  this.found = false;
+  this.difficulty = o.difficulty;
+  this.coordinates = {lat:parseFloat(o.coordinates.lat), lng:parseFloat(o.coordinates.lng)};
+  this.photos = [];
+  this.hints = o.hints;
+  this.url = o.url;
 }
 
 Object.defineProperty(Treasure, 'collection', {
@@ -11,9 +23,8 @@ Treasure.all = function(cb){
   Treasure.collection.find().toArray(cb);
 };
 
-Treasure.create = function(cb){
-  var t = new Treasure(o);
-  Treasure.collection.save(t, cb);
+Treasure.prototype.save = function(cb){
+  Treasure.collection.save(this, cb);
 };
 
 Treasure.findById = function(id, cb){

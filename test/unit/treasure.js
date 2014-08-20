@@ -25,23 +25,21 @@ describe('Treasure', function(){
 
   describe('constructor', function(){
     it('should create a new Treasure object', function(){
-      var t = new Treasure({name: 'Gold', location: 'Reykjavíc, Iceland', difficulty:'Hard', found:'No', coordinates:{lat:'64.133333', lng:'-21.933333'}}, photo:'iceland.jpg', hints:'Go to this city and dig around the cemetery');
+      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', coordinates:{lat:'64.133333', lng:'-21.933333'}, hints:'Go to this city and dig around the cemetery'});
       expect(t).to.be.instanceof(Treasure);
       expect(t.name).to.equal('Gold');
       expect(t.difficulty).to.equal('Hard');
-      expect(t.found).to.equal('No');
-      expect(t.location).to.equal('Reykjavíc, Iceland');
+      expect(t.loc).to.equal('Reykjavíc, Iceland');
       expect(t.coordinates.lat).to.be.closeTo(64.133333, 0.01);
       expect(t.coordinates.lng).to.be.closeTo(-21.933333, 0.01);
-      expect(t.photo).to.equal('iceland.jpg');
     });
   });
 
-  describe('.create', function(){
+  describe('#save', function(){
     it('should create treasure', function(done){
-      var t = new Treasure({name: 'Gold', location: 'Reykjavíc, Iceland', coordinates:{lat:'64.133333', lng:'-21.933333'}});
-      Treasure.create(t, function(err, treasure){
-        expect(treasure._id).to.be.instanceof(Mongo.ObjectID);
+      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', coordinates:{lat:'64.133333', lng:'-21.933333'}, hints:'Go to this city and dig around the cemetery'});
+      t.save(function(){
+        expect(t._id).to.be.instanceof(Mongo.ObjectID);
         done();
       });
     });
@@ -62,6 +60,16 @@ describe('Treasure', function(){
         expect(treasure.location).to.equal('Amsterdam, Netherlands');
         expect(treasure).to.be.instanceof(Treasure);
         expect(treasure.name).to.equal('Porsche');
+        done();
+      });
+    });
+  });
+
+  describe('#downloadPhoto', function(){
+    it('should download/add a photo', function(done){
+      var t = new Treasure({name: 'Gold', loc: 'Reykjavíc, Iceland', coordinates:{lat:'64.133333', lng:'-21.933333'}});
+      t.downloadPhoto('tuna5jpg.jpg', function(){
+        expect(t.photos).to.have.length(1);
         done();
       });
     });

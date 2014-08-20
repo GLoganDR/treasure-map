@@ -1,5 +1,5 @@
 {
-  "name": "Treasure Map",
+  "name": "treasure-map",
   "version": "0.0.0",
   "description": "A Treasure Map application using Google Maps",
   "main": "app/index.js",
