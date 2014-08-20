@@ -1,7 +1,7 @@
 ## name of project
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/GLoganDR/treasure-map.svg)](https://travis-ci.org/GLoganDR/treasure-map)
+[![Coverage Status](https://coveralls.io/repos/GLoganDR/treasure-map/badge.png)](https://coveralls.io/r/GLoganDR/treasure-map)
 
 ### About
 write a description about your project
