@@ -1,9 +1,9 @@
 {
   "_id":{"$oid":"100000000000000000000001"},
   "name":"Gold",
-  "location":"Reykjavíc, Iceland",
+  "loc":"Reykjavíc, Iceland",
   "difficulty":"Hard",
-  "found":"No",
+  "found":false,
   "coordinates":{"lat":64.133333, "lng":-21.933333},
   "photos":[],
   "hints":"Go to this city. Find the cemetery. Once in the cemetery, dig. Find Gold."
@@ -11,9 +11,9 @@
 {
   "_id":{"$oid":"100000000000000000000002"},
   "name":"Diamonds",
-  "location":"Manila, Phillippines",
+  "loc":"Manila, Phillippines",
   "difficulty":"Medium",
-  "found":"Yes",
+  "found":true,
   "coordinates":{"lat":14.583333, "lng":120.966667},
   "photos":[],
   "hints":"Go to Manilla. Good luck finding diamonds there..."
@@ -21,9 +21,9 @@
 {
   "_id":{"$oid":"100000000000000000000003"},
   "name":"Porsche",
-  "location":"Amsterdam, Netherlands",
+  "loc":"Amsterdam, Netherlands",
   "difficulty":"Easy",
-  "found":"Yes",
+  "found":true,
   "coordinates":{"lat":52.366667, "lng":4.9},
   "photos":[],
   "hints":"Go to Amsterdam. Find a Porsche. Bust in the window. Hotwire the Porsche. Drive like Hell. You've got yourself a Porsche."

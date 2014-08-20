@@ -7,12 +7,14 @@
 var Treasure = require('../models/treasure');
 
 exports.init = function(req, res){
-  res.render('treasures/init');
+  Treasure.findById(req.params.id, function(err, treasure){
+    res.render('treasures/init', {treasure:treasure});
+  });
 };
 
 exports.create = function(req, res){
   var t = new Treasure(req.body);
-  t.insert(function(){
+  t.save(function(){
     res.redirect('/treasures');
   });
 };

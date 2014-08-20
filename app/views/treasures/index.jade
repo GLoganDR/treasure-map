@@ -1,0 +1,24 @@
+extends ../shared/template
+block content
+  .row
+    .col-xs-12
+      #map
+  .row
+    .col-xs-12
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Name
+            th Location
+            th Difficulty
+            th Found?
+        tbody
+          each treasure in treasures
+            tr(data-name=treasure.name, data-lat=treasure.coordinates.lat, data-lng=treasure.coordinates.lng)
+              td: a(href='/treasures/#{treasure._id}')= treasure.name
+              td= treasure.loc
+              td= treasure.difficulty
+              td= treasure.found
+
+block scripts
+  script(src='/js/user/treasures.js')
