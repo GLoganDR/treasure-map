@@ -57,7 +57,7 @@ describe('Treasure', function(){
   describe('.findById', function(){
     it('should find a treasure by its id', function(done){
       Treasure.findById(Mongo.ObjectID('100000000000000000000003'), function(err, treasure){
-        expect(treasure.location).to.equal('Amsterdam, Netherlands');
+        expect(treasure.loc).to.equal('Amsterdam, Netherlands');
         expect(treasure).to.be.instanceof(Treasure);
         expect(treasure.name).to.equal('Porsche');
         done();
