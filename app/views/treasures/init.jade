@@ -6,24 +6,24 @@ block content
         input#lat(type='hidden', name='lat')
         input#lng(type='hidden', name='lng')
         .form-group
-          label(for='name') Treasure Name
+          label(for='name') Treasure Name:
           input.form-control#name(type='text', name='name', autofocus=true)
         .form-group
-          label(for='loc') Treasure Location
+          label(for='loc') Treasure Location:
           input.form-control#loc(type='text', name='loc')
         .form-group
-          label(for='difficulty') Treasure Difficulty
+          label(for='difficulty') Treasure Difficulty:
           select.form-control#difficulty(name='difficulty')
             option Easy
             option Medium
             option Hard
         .form-group
-          label(for='hints') Treasure Hints
+          label(for='hints') Treasure Hints:
           textarea.form-control#hints(name='hints')
-        .col-xs-12
-            .form-group
-              label(for='url') Add a Photo URL
-              input.form-control#url(type='text',name='url')
+          .col-xs-12
+              .form-group#url
+                label(for='url') Add a Photo URL:
+                input.form-control#url(type='text',name='url')
             button.btn.btn-success(type'submit') Add Treasure
 
 block scripts

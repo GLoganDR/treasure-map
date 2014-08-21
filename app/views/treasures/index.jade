@@ -5,13 +5,13 @@ block content
       #map
   .row
     .col-xs-12
-      table.table(style='background-color: white;')
+      table#sort.sort.table(style='background-color: white;')
         thead
           tr
-            th Name
-            th Location
-            th Difficulty
-            th Found?
+            th.sort-header Name
+            th.sort-header Location
+            th.sort-header Difficulty
+            th.sort-header Found?
         tbody
           each treasure in treasures
             tr(data-name=treasure.name, data-lat=treasure.coordinates.lat, data-lng=treasure.coordinates.lng)
@@ -22,3 +22,5 @@ block content
 
 block scripts
   script(src='/js/user/treasures.js')
+  script(src='/js/vendor/tablesort.min.js')
+  script(src='/js/user/tablesort.js')
