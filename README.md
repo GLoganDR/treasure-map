@@ -35,6 +35,7 @@ $ npm test
 ```
 
 ### Contributors
+- [Logan Richardson](https://github.com/GLoganDR)
 - [Chyld Medford](https://github.com/chyld)
 
 ### License
