@@ -2,7 +2,7 @@ extends ../shared/template
 block content
   .row
     .col-xs-6
-      form(role='form', method='post', action='/treasures')
+      form.form(roll='form', method='post', action='/treasures/new')
         input#lat(type='hidden', name='lat')
         input#lng(type='hidden', name='lng')
         .form-group
@@ -20,13 +20,11 @@ block content
         .form-group
           label(for='hints') Treasure Hints
           textarea.form-control#hints(name='hints')
-        button.btn.btn-success(type'submit') Add Treasure
-    .col-xs-6
-      form(method='post', action='/treasures')
-        .form-group
-          label(for='url') Add a Photo URL
-          input.form-control#url(type='text',name='url')
-        button.btn.btn-success(type='submit') Add Photo
+        .col-xs-12
+            .form-group
+              label(for='url') Add a Photo URL
+              input.form-control#url(type='text',name='url')
+            button.btn.btn-success(type'submit') Add Treasure
 
 block scripts
   script(src='/js/user/new-treasure.js')

@@ -9,7 +9,7 @@ function Treasure(o){
   this.loc = o.loc;
   this.found = false;
   this.difficulty = o.difficulty;
-  this.coordinates = {lat:parseFloat(o.coordinates.lat), lng:parseFloat(o.coordinates.lng)};
+  this.coordinates = {lat:parseFloat(o.lat), lng:parseFloat(o.lng)};
   this.photos = [];
   this.hints = o.hints;
   this.url = o.url;
@@ -46,6 +46,10 @@ Treasure.prototype.downloadPhoto = function(url, cb){
     self.photos.push(photo);
     Treasure.collection.save(self, cb);
   });
+};
+
+Treasure.prototype.toggleFound = function(){
+  this.found = !this.found;
 };
 
 module.exports = Treasure;

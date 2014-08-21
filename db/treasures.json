@@ -5,7 +5,7 @@
   "difficulty":"Hard",
   "found":false,
   "coordinates":{"lat":64.133333, "lng":-21.933333},
-  "photos":[],
+  "photos":["http://blogs-images.forbes.com/shuchingjeanchen/files/2014/07/gold-bars-in-fort-knox.jpg"],
   "hints":"Go to this city. Find the cemetery. Once in the cemetery, dig. Find Gold."
 }
 {
@@ -15,7 +15,7 @@
   "difficulty":"Medium",
   "found":true,
   "coordinates":{"lat":14.583333, "lng":120.966667},
-  "photos":[],
+  "photos":["http://www.lifeofbrian.ca/wp-content/uploads/2011/07/Creek-Manilla.jpg"],
   "hints":"Go to Manilla. Good luck finding diamonds there..."
 }
 {
@@ -25,6 +25,6 @@
   "difficulty":"Easy",
   "found":true,
   "coordinates":{"lat":52.366667, "lng":4.9},
-  "photos":[],
+  "photos":["http://www.gtspirit.com/wp-content/gallery/2014-porsche-carrera-hurricane-by-maher-thebian/hurricane2.jpg"],
   "hints":"Go to Amsterdam. Find a Porsche. Bust in the window. Hotwire the Porsche. Drive like Hell. You've got yourself a Porsche."
 }

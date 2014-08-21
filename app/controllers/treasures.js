@@ -15,7 +15,9 @@ exports.init = function(req, res){
 exports.create = function(req, res){
   var t = new Treasure(req.body);
   t.save(function(){
-    res.redirect('/treasures');
+    t.downloadPhoto(req.body.url, function(){
+      res.redirect('/treasures');
+    });
   });
 };
 
@@ -31,10 +33,11 @@ exports.show = function(req, res){
   });
 };
 
-exports.downloadPhoto = function(req, res){
+exports.toggleFound = function(req, res){
   Treasure.findById(req.params.id, function(err, treasure){
-    treasure.downloadPhoto(req.body.url, function(){
-      res.redirect('/treasures/' + req.params.id);
+    treasure.toggleFound();
+    treasure.save(function(){
+      res.redirect('/treasures');
     });
   });
 };

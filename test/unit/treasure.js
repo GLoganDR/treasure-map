@@ -25,7 +25,7 @@ describe('Treasure', function(){
 
   describe('constructor', function(){
     it('should create a new Treasure object', function(){
-      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', coordinates:{lat:'64.133333', lng:'-21.933333'}, hints:'Go to this city and dig around the cemetery'});
+      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', lat:'64.133333', lng:'-21.933333', hints:'Go to this city and dig around the cemetery'});
       expect(t).to.be.instanceof(Treasure);
       expect(t.name).to.equal('Gold');
       expect(t.difficulty).to.equal('Hard');
@@ -37,7 +37,7 @@ describe('Treasure', function(){
 
   describe('#save', function(){
     it('should create treasure', function(done){
-      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', coordinates:{lat:'64.133333', lng:'-21.933333'}, hints:'Go to this city and dig around the cemetery'});
+      var t = new Treasure({name: 'Gold', loc:'Reykjavíc, Iceland', url: 'o.jpg', difficulty:'Hard', lat:'64.133333', lng:'-21.933333', hints:'Go to this city and dig around the cemetery'});
       t.save(function(){
         expect(t._id).to.be.instanceof(Mongo.ObjectID);
         done();
@@ -67,9 +67,21 @@ describe('Treasure', function(){
 
   describe('#downloadPhoto', function(){
     it('should download/add a photo', function(done){
-      var t = new Treasure({name: 'Gold', loc: 'Reykjavíc, Iceland', coordinates:{lat:'64.133333', lng:'-21.933333'}});
+      var t = new Treasure({name: 'Johnny Cash\'s Guitar', difficulty: 'Hard', loc: 'Nashville, TN', lat:'36.166666700000000000', lng:'-86.783333299999980000'});
       t.downloadPhoto('tuna5jpg.jpg', function(){
         expect(t.photos).to.have.length(1);
+        done();
+      });
+    });
+  });
+
+  describe('#toggleFound', function(){
+    it('Should change found to true or false', function(done){
+      var id = '100000000000000000000002';
+      Treasure.findById(id, function(err, t){
+        t.toggleFound();
+        expect(t.found).to.be.false;
+        expect(t.name).to.equal('Diamonds');
         done();
       });
     });
