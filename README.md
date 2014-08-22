@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/GLoganDR/treasure-map/badge.png)](https://coveralls.io/r/GLoganDR/treasure-map)
 
 ### About
-write a description about your project
+A simple and fun treasure map application.
 
 ### Models
 ```
